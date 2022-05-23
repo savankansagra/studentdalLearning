@@ -15,3 +15,11 @@ create table studenttab(
 select * from studenttab;
 
 drop table studenttab;
+
+create table customertab(
+	id int PRIMARY KEY auto_increment,
+    cname varchar(20),
+    cemail varchar(30)
+);
+
+select * from customertab;
