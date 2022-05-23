@@ -25,6 +25,18 @@ public class Student {
 	private Double fee;
 	
 	
+	
+	public Student() {
+		super();
+	}
+
+	public Student(String name, String course, Double fee) {
+		super();
+		this.name = name;
+		this.course = course;
+		this.fee = fee;
+	}
+
 	public Student(long id, String name, String course, Double fee) {
 		super();
 		this.id = id;
