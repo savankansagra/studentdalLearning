@@ -20,9 +20,6 @@ public class Customer {
 	
 	@Column(name="cemail")
 	private String cemail;
-
-	
-	
 	
 	public long getId() {
 		return id;

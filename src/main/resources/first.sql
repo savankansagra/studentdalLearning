@@ -23,3 +23,16 @@ create table customertab(
 );
 
 select * from customertab;
+
+-- the location table creation for other operation
+use projectdb;
+
+create table location (
+	id int PRIMARY KEY,
+    code varchar(20),
+    name varchar(20),
+    type varchar(10)
+);
+
+SELECT * FROM location;
+
