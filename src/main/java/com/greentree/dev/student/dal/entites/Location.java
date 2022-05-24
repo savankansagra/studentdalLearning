@@ -10,7 +10,8 @@ import javax.persistence.Id;
 public class Location {
 
 	@Id
-	private Integer Id;
+	@Column(name="id")
+	private Integer id;
 
 	@Column(name = "code")
 	private String code;
@@ -21,20 +22,26 @@ public class Location {
 	@Column(name = "type")
 	private String type;
 
+	
+	
+	public Location() {
+		super();
+	}
+
 	public Location(Integer id, String code, String name, String type) {
 		super();
-		Id = id;
+		this.id = id;
 		this.code = code;
 		this.name = name;
 		this.type = type;
 	}
 
 	public Integer getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Integer id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public String getCode() {
@@ -63,7 +70,7 @@ public class Location {
 
 	@Override
 	public String toString() {
-		return "Location [Id=" + Id + ", code=" + code + ", name=" + name + ", type=" + type + "]";
+		return "Location [Id=" + id + ", code=" + code + ", name=" + name + ", type=" + type + "]";
 	}
 
 }
