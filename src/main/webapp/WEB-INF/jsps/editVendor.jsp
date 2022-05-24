@@ -13,10 +13,13 @@
 id : <input type="text" name="id" value="${vendor.id}" />
 code : <input type="text" name="code" value="${vendor.code}" />
 name : <input type="text" name="name" value="${vendor.name}" />
-type : <input type="text" name="type" value="${vendor.type}" />
+type : <select name="type">
+	<option ${vendor.type=='Regular'?'selected':''}>Regular</option>
+	<option ${vendor.type=='Contact'?'selected':''} >Contract</option>
+</select>
 email : <input type="text" name="email" value="${vendor.email}" />
 phone : <input type="text" name="phone" value="${vendor.phone}" />
-address : <input type="text" name="address" value="${vendor.address}" />
+address : <textarea rows="4" cols="50" name="address" >${vendor.address}</textarea>
 <input type="submit" value="save" />
 	</pre>
 </form>

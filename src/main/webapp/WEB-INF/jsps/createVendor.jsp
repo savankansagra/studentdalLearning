@@ -13,10 +13,13 @@
 id : <input type="text" name="id" />
 code : <input type="text" name="code" />
 name : <input type="text" name="name" />
-type : <input type="text" name="type" />
+type : <select name="type">
+	<option>Regular</option>
+	<option>Contract</option>
+</select>
 email : <input type="text" name="email" />
 phone : <input type="text" name="phone" />
-address : <input type="text" name="address" />
+address : <textarea rows="4" cols="50" name="address"></textarea>
 <input type="submit" value="save" />
 	</pre>
 </form>
