@@ -11,12 +11,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.greentree.dev.student.dal.entites.Location;
 import com.greentree.dev.student.dal.services.LocationService;
+import com.greentree.dev.student.dal.util.EmailUtil;
 
 @Controller
 public class LocationController {
 
 	@Autowired
 	LocationService service;
+	
+	@Autowired
+	EmailUtil emailUtil;
 	
 	@RequestMapping("/showCreate")
 	public String showCreate() {
@@ -27,6 +31,8 @@ public class LocationController {
 	public String saveLocation(@ModelAttribute("location") Location location, ModelMap modelmap) {
 		Location locationSaved = service.saveLocation(location);
 		modelmap.addAttribute("msg", "Location saved with id "+locationSaved.getId());
+		int i=0;
+		emailUtil.sendEmail("015coders015@gmail.com", "Location saved", "Location saved sucessfully and about to return a response");
 		return "createLocation";
 	}
 	
