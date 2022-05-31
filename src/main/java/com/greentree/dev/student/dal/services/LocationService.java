@@ -10,4 +10,5 @@ public interface LocationService {
 	Location saveLocation(Location location);
 	Location updateLocation(Location location);
 	void deleteLocation(Location location);
+	List<Object[]> findTypeAndTypeCount();
 }

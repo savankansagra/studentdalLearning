@@ -35,6 +35,7 @@ create table location (
 );
 
 SELECT * FROM location;
+SELECT type, count(type) from location group by type;
 
 
 -- Create table into database

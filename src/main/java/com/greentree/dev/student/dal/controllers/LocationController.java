@@ -1,6 +1,9 @@
 package com.greentree.dev.student.dal.controllers;
 
+import java.io.File;
 import java.util.List;
+
+import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.greentree.dev.student.dal.entites.Location;
 import com.greentree.dev.student.dal.services.LocationService;
 import com.greentree.dev.student.dal.util.EmailUtil;
+import com.greentree.dev.student.dal.util.ReportUtil;
 
 @Controller
 public class LocationController {
@@ -21,6 +25,12 @@ public class LocationController {
 	
 	@Autowired
 	EmailUtil emailUtil;
+	
+	@Autowired
+	ReportUtil reportUtil;
+	
+	@Autowired
+	ServletContext servletContext;
 	
 	@RequestMapping("/showCreate")
 	public String showCreate() {
@@ -63,12 +73,21 @@ public class LocationController {
 		return "editLocation";
 	}
 
-	@RequestMapping("updateLoc")
+	@RequestMapping("/updateLoc")
 	public String updateLocation(@ModelAttribute("location") Location location, ModelMap modelmap) {
 		service.updateLocation(location);
 		List<Location> allLocation = service.getAllLocation();
 		modelmap.addAttribute("locations", allLocation);	
 		return "displayLocations";
+	}
+	
+	@RequestMapping("/generateReport")
+	public String generateReport() {
+		String path = servletContext.getRealPath("/");
+		
+		List<Object[]> data = service.findTypeAndTypeCount();
+		reportUtil.generatePieChart(new File(path+"/pieChart.jpeg"), data);
+		return "report";
 	}
 	
 }

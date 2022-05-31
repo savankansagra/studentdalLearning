@@ -44,5 +44,10 @@ public class LocationServiceImpl implements LocationService {
 	public void deleteLocation(Location location) {
 		locationRepository.delete(location);
 	}
+	
+	@Override
+	public List<Object[]> findTypeAndTypeCount(){
+		return locationRepository.getTypeAndTypeCount();
+	}
 
 }
