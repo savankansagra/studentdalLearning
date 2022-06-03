@@ -27,6 +27,11 @@ public class UserController {
 		userRepository.save(user);
 		return "login/login";
 	}
+	
+	@RequestMapping(value = "/login")
+	public String showLoginPage() {
+		return "login/login";
+	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@RequestParam("email") String email, @RequestParam("password") String password, ModelMap modelMap){
